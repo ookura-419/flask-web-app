@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>セキュリティ訓練 - 川本鋼材株式会社</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+ <video autoplay muted loop id="background-video">
+        <source src="{{ url_for('static', filename='ALL.mp4') }}" type="video/mp4">
+             お使いのブラウザはビデオタグをサポートしていません。
+    </video>
+ <div class="pattern-overlay"></div> <!-- 網掛けオーバーレイ -->
+    <div class="container">
+        <div class="message-box-title">
+            これはメール訓練です
+        </div>
+        <div class="message-box">
+            <p>川本鋼材株式会社 総務部経営企画課から重要なお知らせです。</p>
+            <p>残念ながら、あなたはメール訓練に失敗しました。</p>
+            </p>これは訓練ですが、実際の攻撃に備えるためすぐに上司に報告してください。</p>
+            </p>ちなみにログは既に取られましたので無視しても無駄です。</p>
+            <button onclick="closeWindow()">メッセージを閉じる</button>
+        </div>
+    <img src="{{ url_for('static', filename='company-logo.png') }}" alt="会社のロゴ" id="company-logo">
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

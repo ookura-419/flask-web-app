@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+#background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100vw;
+    min-height: 100vh;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+}
+
+.pattern-overlay {
+    position: absolute; /* または fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('pattern-03.png') repeat;
+    z-index: -99; /* 動画より上、内容より下に来るように */
+    pointer-events: none; /* オーバーレイがクリックイベントを妨げないように */
+}
+
+.pattern-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.2); /* 赤色の半透明オーバーレイ */
+    pointer-events: none;
+}
+
+.container {
+    display: flex; /* Flexboxレイアウトを適用 */
+    flex-direction: column; /* 子要素を垂直方向に並べる */
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    z-index: 1;
+    position: relative;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    margin: auto; /* 新しく追加、コンテナを水平中央に配置 */
+    transform: translateY(-50%); /* 新しく追加、コンテナを垂直中央に配置 */
+    top: 50%; /* 新しく追加、ビューポートの中央に基づいて配置 */
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fff;
+    background-color: #D32F2F; /* ヘッダーの背景色も赤 */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.message-box {
+    width: 100%; /* メッセージボックスの幅をコンテナいっぱいにする */
+    text-align: center; /* テキストを中央揃えにする */
+    background-color: #fff;
+    color: #D32F2F;
+    padding: 20px;
+    margin-top: 20px;
+    border: 3px solid #D32F2F;
+    border-radius: 5px;
+}
+
+/* メッセージボックスのタイトルスタイルを追加 */
+.message-box-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #fff;
+    background-color: #D32F2F; /* 鮮やかな赤色 */
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button {
+margin: 0 auto; /* ボタンを水平方向の中央に配置するために上下のマージンを自動に設定 */
+    display: block; /* ボタンをブロックレベル要素にする */
+    background-color: #D32F2F;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+
+button:hover {
+    background-color: #B71C1C;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);20
+}
+
+#company-logo {
+display: block; /* ロゴをブロックレベル要素にする */
+    margin: 0 auto; /* ロゴを水平方向の中央に配置 */
+    width:250px; /* またはロゴのオリジナルサイズに合わせて調整 */
+    height: auto;
+    margin-top:15px; /* 他の要素とのスペース */
+}
+
+/* その他のスタイル... */
+/* フェードインアウトのアニメーションを定義 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* メッセージボックスにアニメーションを適用 */
+.message-box {
+    /* その他のスタイル... */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* メッセージボックスがフェードアウトするスタイルを隠しクラスで定義 */
+.hidden {
+    animation: fadeOut 1s ease-out forwards;
+}
